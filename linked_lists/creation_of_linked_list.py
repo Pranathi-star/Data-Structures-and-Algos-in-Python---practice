@@ -28,8 +28,14 @@ class Linked_list:
         print("NULL")
 
 llist = Linked_list()
-tail = llist.insert_at_end(1, None)
-tail = llist.insert_at_end(2, tail)
+tail = None
+tail1 = None
+for i in range(int(input().strip())):
+    if i == 0:
+        tail1 = llist.insert_at_end(int(input().strip()), tail)
+    else:
+        tail1 = llist.insert_at_end(int(input().strip()), tail1)
+
 llist.print_ll()
 
              
