@@ -1,9 +1,3 @@
-def swap(num1, num2):
-    temp = num1
-    num1 = num2
-    num2 = temp
-    return num1, num2
-
 def dutch_national(no_el, elements):
     low, mid, high = 0, 0, no_el - 1
     while mid <= high:
