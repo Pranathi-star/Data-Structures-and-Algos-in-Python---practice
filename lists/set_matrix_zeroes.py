@@ -1,3 +1,4 @@
+# if any of the matrix elements is 0, set all the elements in row and column of that element equal to 0
 def set_zero(rows, cols, matrix):
     col0 = 1
     for i in range(0, rows):
