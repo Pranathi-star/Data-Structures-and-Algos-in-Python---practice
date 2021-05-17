@@ -1,3 +1,4 @@
+# 0-1 knapsack using recursion
 def knapsack(weight, value, capacity, n):
     if capacity == 0 or n == 0:
         return 0
