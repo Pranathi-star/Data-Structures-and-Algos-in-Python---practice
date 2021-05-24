@@ -12,8 +12,6 @@ def dutch_national(no_el, elements):
         elif elements[mid] == 2:
             elements[high], elements[mid] = elements[mid], elements[high]
             high -= 1
-            
-        print(elements)
     return elements
 
 no_el = int(input().strip())
