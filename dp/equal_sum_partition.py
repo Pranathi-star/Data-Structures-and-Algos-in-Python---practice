@@ -13,10 +13,11 @@ def equal_sum_partition(no_el, target_sum):
     if dp[no_el][target_sum] != -1:
         return dp[no_el][target_sum]
     elif arr[no_el - 1] > target_sum:
-        return equal_sum_partition(no_el - 1, target_sum)
+        dp[no_el][target_sum] = equal_sum_partition(no_el - 1, target_sum)
+        return dp[no_el][target_sum]
     elif arr[no_el - 1] <= target_sum:
-        return equal_sum_partition(no_el - 1, target_sum - arr[no_el - 1]) or equal_sum_partition(no_el - 1, target_sum)
-
+        dp[no_el][target_sum] = equal_sum_partition(no_el - 1, target_sum - arr[no_el - 1]) or equal_sum_partition(no_el - 1, target_sum)
+        return dp[no_el][target_sum]
 
 if sum(arr) % 2 != 0:
     print("False")
