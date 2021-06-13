@@ -15,5 +15,4 @@ weight = [int(i) for i in input().split()]
 value = [int(i) for i in input().split()]
 capacity = int(input().strip())
 dp = [[-1] * (capacity + 1)] * (n + 1)
-
 print(knapsack(weight, value, capacity, n))
