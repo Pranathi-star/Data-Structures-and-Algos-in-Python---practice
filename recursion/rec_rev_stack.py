@@ -1,21 +1,25 @@
-no_el = int(input().strip())
+class Solution:
+    def __init__(self, stack):
+        self.stack = stack
+
+    def insert_at_begin(self, top_el):
+        if len(self.stack) == 0:
+            self.stack.append(top_el)
+            return
+        temp = self.stack.pop()
+        self.insert_at_begin(top_el)
+        self.stack.append(temp)
+        return
+
+    def rev_stack(self):
+        if len(self.stack) == 1 or len(stack) == 0:
+            return 
+        top_el = self.stack.pop()
+        self.rev_stack()
+        self.insert_at_begin(top_el)
+        return
+
 stack = [int(i) for i in input().split()]
-
-def insert_at_begin(temp, stack):
-    if len(stack) == 0:
-        stack.append(temp)
-        return
-    last = stack.pop()
-    insert_at_begin(temp, stack)
-    stack.append(last)
-    
-
-def reverse_stack(stack):
-    if len(stack) == 1:
-        return
-    temp = stack.pop()
-    reverse_stack(stack)
-    insert_at_begin(temp, stack)
-
-reverse_stack(stack)
+stack1 = Solution(stack)
+stack1.rev_stack()
 print(stack)

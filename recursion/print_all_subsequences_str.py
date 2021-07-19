@@ -1,18 +1,21 @@
-string = input().strip()
-res = set()
-out_str = ""
+class Solution:
+    def __init__(self):
+        self.res = set()
 
-def all_subsets(string, out_str):
-    if len(string) == 0:
-        res.add(out_str)
+    def generate_subsets(self, input_str, output_str = ""):
+        if input_str == "":
+            self.res.add(output_str)
+            return
+        
+        op1 = output_str
+        op2 = output_str + input_str[0]
+        input_str = input_str[1:]
+        self.generate_subsets(input_str, op1)
+        self.generate_subsets(input_str, op2)
         return
-    
-    op1 = out_str
-    op2 = out_str + string[0]
-    string = string[1:]
-    all_subsets(string, op1)
-    all_subsets(string, op2)
 
+input_str = input().strip()
+str1 = Solution()
+str1.generate_subsets(input_str)     
+print(list(str1.res))  
 
-all_subsets(string, out_str)
-print(res)

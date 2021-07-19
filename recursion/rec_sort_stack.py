@@ -1,23 +1,27 @@
-no_el = int(input().strip())
-stack = [int(i) for i in input().split()]
+class Solution:
+    def __init__(self, stack):
+        self.stack = stack
 
-def insert_in_stack(stack, top_el):
-    if len(stack) == 0:
-        stack.append(top_el)
-    elif(stack[-1] <= top_el):
-        stack.append(top_el)
-    else:
-        temp = stack.pop()
-        insert_in_stack(stack, top_el)
-        stack.append(temp)
-
-
-def sort_stack(stack):
-    if len(stack) == 1:
+    def insert_in_stack(self, top_el):
+        if len(self.stack) == 0:
+            self.stack.append(top_el)
+            return
+        elif top_el >= self.stack[-1]:
+            self.stack.append(top_el)
+            return
+        temp = self.stack.pop()
+        self.insert_in_stack(top_el)
+        self.stack.append(temp)
         return
-    top_el = stack.pop()
-    sort_stack(stack)
-    insert_in_stack(stack, top_el)
 
-sort_stack(stack)
-print(stack)
+    def sort_stack(self):
+        if len(self.stack) == 1:
+            return stack
+        top_el = self.stack.pop()
+        sorted_arr = self.sort_stack()
+        self.insert_in_stack(top_el)
+        return sorted_arr
+        
+stack = [int(i) for i in input().split()]
+stack1 = Solution(stack)
+print(stack1.sort_stack())

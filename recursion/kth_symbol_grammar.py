@@ -1,20 +1,19 @@
-n = int(input().strip())
-k = int(input().strip())
+class Solution:
+    def __init__(self, n , k):
+        self.n = n
+        self.k = k
 
-def comp(val):
-    if val:
-        return 0
-    return 1
+    def find_kth_symbol(self, n, k):
+        if n == 1 and k == 1:
+            return 0
 
-def kth_in_grammar(n, k):
-    if n - 1 == 0 and k - 1 == 0:
-        return 0
-    else:
-        length = pow(2, n - 1)
-        mid = length // 2
-        if k <= mid:
-            return kth_in_grammar(n - 1, k)
+        elif k <= pow(2, n - 1) // 2:
+            return self.find_kth_symbol(n - 1, k)
+
         else:
-            return comp(kth_in_grammar(n - 1, k - mid))
-            
-print(kth_in_grammar(n, k))
+            return abs(self.find_kth_symbol(n - 1, k - pow(2, n - 1) // 2) - 1)
+
+n, k = [int(i) for i in input().split()]
+grammar = Solution(n , k)
+print(grammar.find_kth_symbol(n, k))  
+        

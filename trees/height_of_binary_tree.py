@@ -1,10 +1,9 @@
 class TreeNode:
-    def __init__(self, value):
+    def __init__(self, val):
+        self.val = val
         self.left = None
         self.right = None
-        self.value = value
 
-# constructing a tree
 root = TreeNode(1)
 root.left = TreeNode(2)
 root.right = TreeNode(3)
@@ -12,15 +11,17 @@ root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 root.left.right.left = TreeNode(6)
 
-def height_of_binary_tree(root):
-    if (root and root.left == None and root.right == 0) or root == None:
+def heightbintree(root):
+    if root == None:
         return 0
-    height1 = 0
-    height2 = 0
-    if root.left:
-        height1 = height_of_binary_tree(root.left) + 1
-    if root.right:
-        height2 = height_of_binary_tree(root.right) + 1
-    return max(height1, height2)
+    elif root.left == None and root.right == None:
+        return 0
+    else:
+        if root.left and root.right:
+            return max(heightbintree(root.left), heightbintree(root.right)) + 1
+        elif root.left:
+            return heightbintree(root.left) + 1
+        elif root.right:
+            return heightbintree(root.right) + 1
 
-print(height_of_binary_tree(root))
+print(heightbintree(root))
