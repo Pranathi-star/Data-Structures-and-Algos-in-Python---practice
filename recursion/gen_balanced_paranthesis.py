@@ -1,34 +1,30 @@
+class Solution:
+    def __init__(self):
+        self.res = []
+
+    def balanced_parans(self, open_p, closed_p, out_str = ""):
+        if open_p == 0 and closed_p == 0:
+            self.res.append(out_str)
+            return
+        elif open_p and closed_p and closed_p == open_p:
+            op = out_str + '('
+            open_p -= 1
+            self.balanced_parans(open_p, closed_p, op)
+        elif open_p and closed_p and closed_p > open_p:
+            op1 = out_str + '('
+            temp1 = open_p
+            temp1 -= 1
+            self.balanced_parans(temp1, closed_p, op1)
+            op2 = out_str + ')'
+            closed_p -= 1
+            self.balanced_parans(open_p, closed_p, op2)
+        elif open_p == 0 and closed_p != 0:
+            op = out_str + ')'
+            closed_p -= 1
+            self.balanced_parans(open_p, closed_p, op)
+
 n = int(input().strip())
-out_str, op1, op2 = "", "", ""
 open_p, closed_p = n, n
-res = []
-
-def balanced_parans(out_str, open_p, closed_p):
-    if open_p == 0 and closed_p == 0:
-        res.append(out_str)
-        out_str = ""
-        return
-    elif open_p and closed_p and closed_p == open_p:
-        op1 = out_str + '('
-        open_p -= 1
-        balanced_parans(op1, open_p, closed_p)
-    elif open_p and closed_p and closed_p > open_p:
-        op1 = out_str + '('
-        temp1 = open_p
-        temp1 -= 1
-        balanced_parans(op1, temp1, closed_p)
-        op2 = out_str + ')'
-        temp2 = closed_p
-        temp2 -= 1
-        balanced_parans(op2, open_p, temp2)
-    elif open_p == 0 and closed_p != 0:
-        out_str = out_str + ')'
-        closed_p -= 1
-        balanced_parans(out_str, open_p, closed_p)
-    elif open_p != 0 and closed_p == 0:
-        out_str = out_str + '('
-        open_p -= 1
-        balanced_parans(out_str, open_p, closed_p)
-
-balanced_parans(out_str, open_p, closed_p)
-print(res)
+parans = Solution()
+parans.balanced_parans(open_p, closed_p)
+print(parans.res)
