@@ -4,7 +4,7 @@ class Solution:
             res.append(output)
             return
         for i in range(idx, len(array)):
-            if i > idx and array[i] == arr[i - 1]:
+            if i > idx and array[i] == array[i - 1]:
                 continue
             if array[i] > target:
                 break
