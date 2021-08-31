@@ -4,7 +4,7 @@ class Solution:
     def find_triplets(self, array):
         array.sort()
         size = len(array)
-        for i in range(size):
+        for i in range(size - 2):
             target_sum = -1 * array[i]
             left = i + 1
             right = size - 1
