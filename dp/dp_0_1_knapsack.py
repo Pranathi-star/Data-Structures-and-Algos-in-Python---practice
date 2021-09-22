@@ -1,6 +1,7 @@
 def knapsack(weight, value, capacity, n):
     if capacity == 0 or n == 0:
-        return 0
+        dp[n][capacity] = 0
+        return dp[n][capacity]
     if dp[n][capacity] != -1:
         return dp[n][capacity]
     elif(weight[n - 1] > capacity):
@@ -16,3 +17,4 @@ value = [int(i) for i in input().split()]
 capacity = int(input().strip())
 dp = [[-1] * (capacity + 1)] * (n + 1)
 print(knapsack(weight, value, capacity, n))
+print(dp)
