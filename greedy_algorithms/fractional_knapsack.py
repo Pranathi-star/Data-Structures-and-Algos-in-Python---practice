@@ -7,8 +7,10 @@ class Solution:
             if items[i][1] <= cap:
                 max_possible_profit += items[i][0]
                 cap -= items[i][1]
+                print("Fraction of item ", i + 1, "is 1")
             else:
                 max_possible_profit += (items[i][2] * cap)
+                print("Fraction of item ", i + 1, "is ", cap / items[i][1])
                 cap = 0
                 break
 

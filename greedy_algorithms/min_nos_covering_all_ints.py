@@ -5,7 +5,6 @@ class Solution:
             intervals.append([start_pts[i], end_pts[i]])
 
         intervals.sort(key = lambda x: x[1])
-        max_possible_profit = 0
         res = []
         curr_res = intervals[0][1]
         for i in intervals:
