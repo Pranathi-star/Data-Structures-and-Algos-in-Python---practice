@@ -7,7 +7,7 @@ class Solution:
         max_terms = deque()
         res = []
         while right < size:
-            if len(max_terms) == 0 or arr[right] > max_terms[-1]:
+            if len(max_terms) != 0 and arr[right] > max_terms[-1]:
                 while(len(max_terms) != 0):
                     max_terms.popleft()
             max_terms.append(arr[right])

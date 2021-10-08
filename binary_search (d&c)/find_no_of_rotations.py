@@ -3,7 +3,7 @@ class Solution:
         size = len(array)
         low, high = 0, size - 1
         if array[0] < array[size - 1]:
-            return array[0]
+            return 0
         while low <= high:
             mid = low + (high - low)//2
             prev = (mid + size - 1) % size

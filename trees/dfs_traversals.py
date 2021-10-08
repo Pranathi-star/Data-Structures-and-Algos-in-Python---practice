@@ -15,6 +15,20 @@ class Solution:
         self.inorder(root.right)
         return
 
+    def preorder(self, root):
+        if root == None:
+            return
+        self.res.append(root.data)
+        self.preorder(root.left)
+        self.preorder(root.right)
+    
+    def postorder(self, root):
+        if root == None:
+            return
+        self.postorder(root.left)
+        self.postorder(root.right)
+        self.res.append(root.data)
+
 root = TreeNode(3)
 root.left = TreeNode(1)
 root.right = TreeNode(4)
