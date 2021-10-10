@@ -1,12 +1,12 @@
 str1 = input().strip()
-str2 = input().strip()
+str2 = str1[::-1]
 n1 = len(str1)
 n2 = len(str2)
 dp = []
 for i in range(n1 + 1):
     dp.append([-1] * (n2 + 1))
 
-def print_lcs(str1, str2, n1, n2):
+def no_ins_del(str1, str2, n1, n2):
     res = ""
     for i in range(n1 + 1):
         for j in range(n2 + 1):
@@ -29,6 +29,7 @@ def print_lcs(str1, str2, n1, n2):
 
             else:
                 n -= 1
-    return res[::-1]
-print(print_lcs(str1, str2, n1, n2))
+    res = res[::-1]
+
+print(no_ins_del(str1, str2, n1, n2))
 

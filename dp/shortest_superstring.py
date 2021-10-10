@@ -6,7 +6,7 @@ dp = []
 for i in range(n1 + 1):
     dp.append([-1] * (n2 + 1))
 
-def print_lcs(str1, str2, n1, n2):
+def shortest_superstring(str1, str2, n1, n2):
     res = ""
     for i in range(n1 + 1):
         for j in range(n2 + 1):
@@ -29,6 +29,13 @@ def print_lcs(str1, str2, n1, n2):
 
             else:
                 n -= 1
-    return res[::-1]
-print(print_lcs(str1, str2, n1, n2))
+    res = res[::-1]
+    ans = str1 + str2
+    i = len(res) - 1
+    while i >= 0:
+        idx = ans.rfind(res[i])
+        ans = ans[:idx] + ans[idx + 1:]
+        i -= 1
+    return ans
+print(shortest_superstring(str1, str2, n1, n2))
 

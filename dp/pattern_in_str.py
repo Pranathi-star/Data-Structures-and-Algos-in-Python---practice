@@ -6,7 +6,7 @@ dp = []
 for i in range(n1 + 1):
     dp.append([-1] * (n2 + 1))
 
-def print_lcs(str1, str2, n1, n2):
+def pattern_present_as_subseq(str1, str2, n1, n2):
     res = ""
     for i in range(n1 + 1):
         for j in range(n2 + 1):
@@ -29,6 +29,10 @@ def print_lcs(str1, str2, n1, n2):
 
             else:
                 n -= 1
-    return res[::-1]
-print(print_lcs(str1, str2, n1, n2))
+    res = res[::-1]
+    if res == str1 or res == str2:
+        return True
+    else:
+        return False
+print(pattern_present_as_subseq(str1, str2, n1, n2))
 

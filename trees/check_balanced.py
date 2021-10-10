@@ -10,7 +10,6 @@ class Solution:
             return 0
         lh = self.check_balanced(root.left)
         if lh == -1: return -1
-
         rh = self.check_balanced(root.right)
         if rh == -1: return -1
 
