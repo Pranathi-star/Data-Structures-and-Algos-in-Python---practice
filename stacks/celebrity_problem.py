@@ -1,8 +1,8 @@
 class Solution:
     def find_celeb(self, mat):
         stack = []
-        r = len(stack)
-        c = len(stack[0])
+        r = len(mat)
+        c = len(mat[0])
         for i in range(r):
             stack.append(i)
         

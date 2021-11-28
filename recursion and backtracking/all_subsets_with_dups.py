@@ -5,7 +5,6 @@ class Solution:
             if i > idx and array[i] == array[i - 1]:
                 continue
             output.append(array[i])
-            print(output)
             self.get_power_set(i + 1, array, output[:], res)
             output.pop()
 

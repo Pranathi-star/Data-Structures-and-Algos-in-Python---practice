@@ -8,12 +8,15 @@ def bfs(no_nodes, visited, adj_list):
             queue.append(i)
             visited[i] = 1
             while(len(queue) > 0):
-                curr_node = queue.popleft()
-                seq.append(curr_node)
-                for item in adj_list[curr_node]:
-                    if(visited[item] == 0):
-                        queue.append(item)
-                        visited[item] = 1
+                curr_level = []
+                for i in range(len(queue)):
+                    curr_node = queue.popleft()
+                    curr_level.append(curr_node)
+                    for item in adj_list[curr_node]:
+                        if(visited[item] == 0):
+                            queue.append(item)
+                            visited[item] = 1
+                seq.append(curr_level)
     return seq
 
 def main():

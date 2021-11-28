@@ -19,27 +19,27 @@ class Solution:
         hdist_from_root = {}
         hdist_from_root[root] = 0
 
-        nodes_dist = {}
-        nodes_dist[hdist_from_root[root]] = [root.data]
+        nodes_at_dist = {}
+        nodes_at_dist[0] = [root.data]
         while len(queue):
             curr_node = queue.popleft()
             if curr_node.left:
                 queue.append(curr_node.left)
                 hdist_from_root[curr_node.left] = hdist_from_root[curr_node] - 1
-                if nodes_dist.get(hdist_from_root[curr_node.left]) == None:
-                    nodes_dist[hdist_from_root[curr_node.left]] = [curr_node.left.data]
+                if nodes_at_dist.get(hdist_from_root[curr_node.left]) == None:
+                    nodes_at_dist[hdist_from_root[curr_node.left]] = [curr_node.left.data]
                 else:
-                    nodes_dist[hdist_from_root[curr_node.left]].append(curr_node.left.data)
+                    nodes_at_dist[hdist_from_root[curr_node.left]].append(curr_node.left.data)
 
             if curr_node.right:
                 queue.append(curr_node.right)
                 hdist_from_root[curr_node.right] = hdist_from_root[curr_node] + 1
-                if nodes_dist.get(hdist_from_root[curr_node.right]) == None:
-                    nodes_dist[hdist_from_root[curr_node.right]] = [curr_node.right.data]
+                if nodes_at_dist.get(hdist_from_root[curr_node.right]) == None:
+                    nodes_at_dist[hdist_from_root[curr_node.right]] = [curr_node.right.data]
                 else:
-                    nodes_dist[hdist_from_root[curr_node.right]].append(curr_node.right.data)
+                    nodes_at_dist[hdist_from_root[curr_node.right]].append(curr_node.right.data)
 
-        ans = OrderedDict(sorted(nodes_dist.items()))
+        ans = OrderedDict(sorted(nodes_at_dist.items()))
         print(ans)
         for i in ans.values():
             for j in i:
